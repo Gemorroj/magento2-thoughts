@@ -1,5 +1,5 @@
 # magento2-thoughts
-Мысли по magento2
+Мысли после первого знакомства с magento2
 
 ### Установка
 
