@@ -1,14 +1,14 @@
 # magento2-thoughts
 Мысли по magento2
 
-## Установка
+### Установка
 
-### Используем ветку 2.3 т.к. там несколько более адекватные зависимости (php 7.2 и проч).
-По нормальному устанавливать через composer, но ветка еще не релизилась, поэтому клон из гита.
+Используем ветку 2.3 т.к. там несколько более адекватные зависимости (php 7.2 и проч).  
+По нормальному устанавливать через composer, но ветка еще не релизилась, поэтому клон из гита.  
 
-mysql:
-увеличить max_allowed_packed до 150mb
-создать бд magento2
+mysql:  
+увеличить max_allowed_packed до 150mb  
+создать бд magento2  
 
 ```bash
 git clone -b 2.3-develop https://github.com/magento/magento2.git magento2.loc
@@ -47,30 +47,31 @@ php bin/magento dev:urn-catalog:generate .idea/misc.xml
 
 
 ### Неструктурированный сумбур
-https://github.com/Smile-SA/magento2-module-debug-toolbar/blob/master/composer.json
-debug toolbar
-завязка на "magento/framework": "~101.0.0"
 
-использование репозиториев и критериев фильтрации (привычный и имхо более адекватный подход к поиску по БД):
-https://devdocs.magento.com/guides/v2.2/extension-dev-guide/searching-with-repositories.html
-https://github.com/magento/magento2/blob/2.2/app/code/Magento/Customer/Model/ResourceModel/CustomerRepository.php#L342
+https://github.com/Smile-SA/magento2-module-debug-toolbar/blob/master/composer.json  
+debug toolbar  
+завязка на "magento/framework": "~101.0.0"  
 
-https://devdocs.magento.com/guides/v2.2/extension-dev-guide/plugins.html
-Interceptors - это декораторы! а не прокси https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
+использование репозиториев и критериев фильтрации (привычный и имхо более адекватный подход к поиску по БД):  
+https://devdocs.magento.com/guides/v2.2/extension-dev-guide/searching-with-repositories.html  
+https://github.com/magento/magento2/blob/2.2/app/code/Magento/Customer/Model/ResourceModel/CustomerRepository.php#L342  
 
-https://github.com/netz98/n98-magerun2 утилита для управления мажентой (не поддерживает пока что 2.3 https://github.com/netz98/n98-magerun2/issues/376)
+https://devdocs.magento.com/guides/v2.2/extension-dev-guide/plugins.html  
+Interceptors - это декораторы! а не прокси https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)  
 
-в маженте 2.3 значительно более адекватные версии https://github.com/magento/magento2/blob/2.3-develop/composer.json (хотя все равно до адекватности далеко)
+https://github.com/netz98/n98-magerun2 утилита для управления мажентой (не поддерживает пока что 2.3 https://github.com/netz98/n98-magerun2/issues/376)  
 
-
-мажента использует ПЕРВЫЙ зендфреймворк даже в вктке 2.3!!! https://github.com/magento/magento2/blob/2.3-develop/composer.json#L41
-и походу слезать с этой наркоты даже не собирается
-отсюда кстати и проблемы с совместимостью с новыми версиями php. т.к. зендом этот фреймворк более не поддерживается
+в маженте 2.3 значительно более адекватные версии https://github.com/magento/magento2/blob/2.3-develop/composer.json (хотя все равно до адекватности далеко)  
 
 
-пулл реквест с симфоневским вардампером в маженту https://github.com/magento/magento2/pull/15538
+мажента использует ПЕРВЫЙ зендфреймворк даже в вктке 2.3!!! https://github.com/magento/magento2/blob/2.3-develop/composer.json#L41  
+и походу слезать с этой наркоты даже не собирается  
+отсюда кстати и проблемы с совместимостью с новыми версиями php. т.к. зендом этот фреймворк более не поддерживается  
 
-Слезы:
-Фишки РСУБД практически не используются. Даже банально связи и те далеко не всегда проставлены. ON UPDATE нельзя сконфигурить.
-Следовательно в данном разрезе не имеет значения используем мы mysq/postgres или другую РСУБД. Возможно предпочтительнее даже будет перейти на nosql бд типа монги.
+
+пулл реквест с симфоневским вардампером в маженту https://github.com/magento/magento2/pull/15538  
+
+Слезы:  
+Фишки РСУБД практически не используются. Даже банально связи и те далеко не всегда проставлены. ON UPDATE нельзя сконфигурить.  
+Следовательно в данном разрезе не имеет значения используем мы mysq/postgres или другую РСУБД. Возможно предпочтительнее даже будет перейти на nosql бд типа монги.  
 
