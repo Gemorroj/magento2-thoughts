@@ -16,7 +16,7 @@ cd magento2.loc
 
 php composer.phar update --no-dev
 
-php bin/magento setup:install --admin-firstname=admin --admin-lastname=admin --admin-email=email@admin.admin --admin-user=admin --admin-password=admin123 --cleanup-database --base-url=http://magento2.loc/ --db-host=localhost --db-name=magento2 --db-user=root --db-password=
+php bin/magento setup:install --use-sample-data --admin-firstname=admin --admin-lastname=admin --admin-email=email@admin.admin --admin-user=admin --admin-password=admin123 --cleanup-database --base-url=http://magento2.loc/ --db-host=localhost --db-name=magento2 --db-user=root --db-password=
 
 php bin/magento deploy:mode:set developer
 ```
